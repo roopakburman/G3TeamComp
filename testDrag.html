@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>\</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript">
+<!-- window.str = ""; -->
+window.score=0;
+window.engagement=0;
+window.myIQ=0;
+//function called when drag starts
+function dragIt(theEvent) {
+//tell the browser what to drag
+theEvent.dataTransfer.setData("Text", theEvent.target.id);
+}
+
+
+//function called when element drops
+function dropIt(theEvent) {
+//get a reference to the element being dragged
+var theData = theEvent.dataTransfer.getData("Text");
+//get the element
+var theDraggedElement = document.getElementById(theData);
+
+var bar1 = document.getElementById("progress-bar");
+var bar2 = document.getElementById("pEngagement");
+var bar3 = document.getElementById("pIQ");
+//add it to the drop element
+theEvent.target.appendChild(theDraggedElement);
+//instruct the browser to allow the drop
+theEvent.preventDefault();
+<!-- str = str.concat(theData.substring(0,3)); -->
+
+<!-- Adding to the team -->
+if(theEvent.target.id == 'place1' || theEvent.target.id == 'place2' || theEvent.target.id == 'place3' || theEvent.target.id == 'place4' || theEvent.target.id == 'place5' || theEvent.target.id == 'place6' || theEvent.target.id == 'place7' || theEvent.target.id == 'place8'){
+	if(score<100 && score >=0){
+		if(theData == 'pic8'){
+			score = score + 15;
+			engagement = engagement + 7;
+			myIQ = myIQ + 13;
+		}
+		else if(theData == 'pic7'){
+			score = score + 5;
+			engagement = engagement + 15;
+			myIQ = myIQ + 12;
+		}
+		else if(theData == 'pic6'){
+			score = score + 18;
+			engagement = engagement + 10;
+			myIQ = myIQ + 12;
+		}
+		else if(theData == 'pic5'){
+			score = score + 22;
+			engagement = engagement + 13;
+			myIQ = myIQ + 11;
+		}
+		else if(theData == 'pic4'){
+			score = score + 12;
+			engagement = engagement + 17;
+			myIQ = myIQ + 16;
+		}
+		else if(theData == 'pic3'){
+			score = score + 13;
+			engagement = engagement + 12;
+			myIQ = myIQ + 12;			
+		}
+		else if(theData == 'pic2'){
+			score = score + 5;
+			engagement = engagement + 11;
+			myIQ = myIQ + 12;			
+		}
+		else if(theData == 'pic1'){
+			score = score + 10;
+			engagement = engagement + 15;
+			myIQ = myIQ + 12;			
+		}
+		document.getElementById("myTeam").innerHTML = score + "%";
+		document.getElementById("myEngagement").innerHTML = engagement + "%";
+		document.getElementById("myIQ").innerHTML = myIQ + "%";
+		$("#progress-bar").css("width", score + "%");
+        $("#progress-bar").attr("aria-valuenow", score);
+		
+		$("#pEngagement").css("width", engagement + "%");
+        $("#pEngagement").attr("aria-valuenow", engagement);
+
+		$("#pIQ").css("width", myIQ + "%");
+        $("#pIQ").attr("aria-valuenow", myIQ);
+
+		
+		if (score < 30){
+			bar1.className = "active progress-bar progress-bar-danger progress-bar-striped";
+		}
+		else if (score >=30 && score < 80){
+			bar1.className = "active progress-bar progress-bar-warning progress-bar-striped";
+		}
+		else if (score >=80){
+			bar1.className = "active progress-bar progress-bar-success progress-bar-striped"
+		}
+		
+		if (engagement < 30){
+			bar2.className = "active progress-bar progress-bar-danger progress-bar-striped";
+		}
+		else if (engagement >=30 && engagement < 80){
+			bar2.className = "active progress-bar progress-bar-warning progress-bar-striped";
+		}
+		else if (engagement >=80){
+			bar2.className = "active progress-bar progress-bar-success progress-bar-striped"
+		}
+		
+		if (myIQ < 30){
+			bar3.className = "active progress-bar progress-bar-danger progress-bar-striped";
+		}
+		else if (myIQ >=30 && myIQ < 80){
+			bar3.className = "active progress-bar progress-bar-warning progress-bar-striped";
+		}
+		else if (myIQ >=80){
+			bar3.className = "active progress-bar progress-bar-success progress-bar-striped"
+		}
+	}
+	<!-- if (str == 'picpicpicpicpicpicpicpic'){ -->
+		<!-- document.getElementById("target").style.backgroundColor='#CCCC00'; -->
+	<!-- } -->
+}
+
+<!-- Removing from the team -->
+if(theEvent.currentTarget.id != theEvent.target.id){
+if(theEvent.target.id == 'drag1' || theEvent.target.id == 'drag2' || theEvent.target.id == 'drag3' || theEvent.target.id == 'drag4' || theEvent.target.id == 'drag5' || theEvent.target.id == 'drag6' || theEvent.target.id == 'drag7' || theEvent.target.id == 'drag8'){
+	if(score<100 && score >=0){
+		if(theData == 'pic8'){
+			score = score - 15;
+		}
+		else if(theData == 'pic7'){
+			score = score - 5;
+		}
+		else if(theData == 'pic6'){
+			score = score - 18;
+		}
+		else if(theData == 'pic5'){
+			score = score - 22;
+		}
+		else if(theData == 'pic4'){
+			score = score - 12;
+		}
+		else if(theData == 'pic3'){
+			score = score - 13;
+		}
+		else if(theData == 'pic2'){
+			score = score - 5;
+		}
+		else if(theData == 'pic1'){
+			score = score - 10;
+		}
+		document.getElementById("myTeam").innerHTML = score + "%";
+		$("#progress-bar").css("width", score + "%");
+        $("#progress-bar").attr("aria-valuenow", score);
+		if (score < 30)
+			bar.className = "active progress-bar progress-bar-danger progress-bar-striped";
+		else if (score >=30 && score < 80)
+			bar.className = "active progress-bar progress-bar-warning progress-bar-striped";
+		else if (score >=80)
+			bar.className = "active progress-bar progress-bar-success progress-bar-striped"
+	}
+	<!-- if (str == 'picpicpicpicpicpicpicpic'){ -->
+		<!-- document.getElementById("target").style.backgroundColor='#CCCC00'; -->
+	<!-- } -->
+}}
+
+}
+<!-- $(document).ready(function(){...}) -->
+$(document).ready(function(){
+$(".slot" ).draggable();
+$(".slot").on("dragstop", function() {
+   console.log($(this).data("id")); 
+});
+})
+</script>
+</head>
+<body>
+<!-- Navigation Bar Starts -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="logo-ceb.png"></img></a>
+    </div>
+<h1> Team Utimate</h1>
+
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- Navigation Bar Ends -->
+<hr/>
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<div id="boxA" >
+
+			<div class="col-md-1">
+				<div id="drag8" draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="8.png" ondragstart="dragIt(event);" id="pic8"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="2.png" ondragstart="dragIt(event);" id="pic2"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag2"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="7.png" ondragstart="dragIt(event);" id="pic7"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag3"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="5.png" ondragstart="dragIt(event);" id="pic5"></img>
+			</div>
+			</div>
+
+
+			<div class="col-md-1">
+			<div id="drag4"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="4.png" ondragstart="dragIt(event);" id="pic4"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag5"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="3.png" ondragstart="dragIt(event);" id="pic3"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag6"  draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="6.png" ondragstart="dragIt(event);" id="pic6"></img>
+			</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag7" draggable="yes" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+			<img src="1.png" ondragstart="dragIt(event);" id="pic1"></img>
+			</div>	
+			</div>
+
+    </div>
+	</div>
+</div>
+</div>
+<!--element with draggable pictures-->
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+	<div id="target">
+	<div id="place1" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place2" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place3" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place4" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place5" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place6" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place7" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+	<div id="place8" ondrop="dropIt(event);" ondragover="event.preventDefault();">
+	</div>
+</div>
+</div>
+</div>
+</div>
+<!--informative numbers-->
+<div class="container well"> 
+	<div class="row" >
+		<div class="col-md-2">Team Chemistry:</div>
+		<div class="col-md-4">
+		<div class="progress">
+  <div class="active progress-bar progress-bar-striped " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="progress-bar">
+
+  </div>
+</div>
+		
+		</div>
+		<div class="col-md-6" id="myTeam">0%</div>
+		
+	</div>
+	<div class="row" >
+		<div class="col-md-2">Team Engagement:</div>
+		<div class="col-md-4">
+		<div class="progress">
+  <div class="active progress-bar progress-bar-striped " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="pEngagement">
+
+  </div>
+</div>
+		</div>
+		<div class="col-md-6" id="myEngagement">0%</div>
+	</div>
+	<div class="row" >
+		<div class="col-md-2">Team IQ:</div>
+		<div class="col-md-4">
+		<div class="progress">
+  <div class="active progress-bar progress-bar-striped " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%" id="pIQ">
+
+  </div>
+</div>
+		
+		</div>
+		<div class="col-md-6" id="myIQ">0%</div>
+		
+	</div>
+</div>
+
+<div class="slot" data-id="1">1</div>
+<div class="slot" data-id="2">2</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>Canvaaaaas</title>
+	<link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+    <style>
+        html, body {
+          width:  100%;
+          height: 100%;
+          margin: 0px;
+        }
+    </style>
+    <script>
+        function draw() {
+  var canvas = document.getElementById('myCanvas');
+  if (canvas.getContext){
+     var ctx = canvas.getContext('2d');
+
+    var path=new Path2D();
+    path.arc(75,75,50,0,Math.PI*2,true); // Outer circle
+    path.moveTo(110,75);
+    path.arc(75,75,35,0,Math.PI,false);  // Mouth (clockwise)
+    path.moveTo(65,65);
+    path.arc(60,65,5,0,Math.PI*2,true);  // Left eye
+    path.moveTo(95,65);
+    path.arc(90,65,5,0,Math.PI*2,true);  // Right eye
+    ctx.stroke(path);
+  }
+}
+    </script>       
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3" draggable="yes">
+				<canvas id='myCanvas'></canvas>
+			</div>
+			<div class="col-md-3">
+ASDF
+			</div>
+			<div class="col-md-3">SADF
+			</div>
+			<div class="col-md-3">ASDF
+			</div>
+
+			</div>
+	</div>
+    <script>
+        draw();
+    </script>
+</body>
+</html>

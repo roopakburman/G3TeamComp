@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="jquery-ui-1.8.15.custom.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#draggable").draggable({axis: "y"});
+				$("#draggable2").draggable({axis: "x"});
+				
+				$("#draggable3").draggable({containment: "#containment-wrapper", scroll: false});
+				$("#draggable4").draggable({containment: "body"});
+				$("#draggable5").draggable({containment: "parent"});				
+												
+				$("div", document.body).click(function (e) {
+					var offset = $(this).offset();
+					var $whatever = $(this);
+					var ending_right = $whatever.offset().left + $whatever.outerWidth();
+					var ending_bottom = $whatever.offset().top + $whatever.outerHeight();
+					e.stopPropagation();
+					$("#coords").html("DIV" + " coords ( <span>" + offset.left + "</span>, <span>" + offset.top + "</span>, <span>" + ending_right + "</span>, <span>" + ending_bottom + "</span> )");
+					if(((offset.top <  289) || (offset.left < 13)) ||((ending_right > 1227) || (ending_bottom > 462))) {
+						$("#result").text('This element is not in "containment-wrapper"!');
+					}
+					else {
+						$("#result").text('This element is in "containment-wrapper"!');
+					}					 
+				});
+				
+			});
+		</script>
+		<style type="text/css">
+			span {
+				color: red;
+			}
+			div {
+				display: block;
+			}
+			h3 {
+				clear: left;
+				padding: .5em 0 1em;
+			}
+			.demo {
+				padding: 5px;
+			}
+			.draggable {
+				width: 90px; 
+				height: 90px; 
+				padding: 0.5em; 
+				float: left; 
+				margin: 0 10px 10px 0;
+			}
+			.boxModel {
+				border: 1px solid #DDD;
+				background-color: #EEE;
+				color: #333;
+				font-size: 11px;
+			}
+			.inBox {
+				border: 1px solid #E78F08;
+				background: #F6A828;
+				color: white;
+				font-weight: bold;
+			}
+			#draggable, #draggable2 {
+				margin-bottom: 20px;
+			}
+			#draggable {
+				cursor: n-resize;
+			}
+			#draggable2 {
+				cursor: e-resize;
+			}
+			#containment-wrapper {
+				width: 95%; 
+				height: 150px; 
+				border: 2px solid #ccc;
+				padding: 10px;
+			}
+			#result {
+				font-size: 13pt;
+				font-Weight: bold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="demo">
+			<h3>Constrain movement along an axis:</h3>
+			<div id="draggable" class="draggable boxModel">
+				<p>I cand be dragged only vertically</p>
+			</div>
+			<div id="draggable2" class="draggable boxModel">
+				<p>I cand be dragged only horizontally</p>
+			</div>
+			
+			<h3>Or to within another DOM element: ("containment-wrapper")</h3>
+			<div id="containment-wrapper">
+				<div id="draggable3" class="draggable boxModel">
+					<p>I'm contained within the box</p>
+				</div>
+				<div id="draggable4" class="draggable boxModel">
+					<p>I'm contained within the box's parent</p>
+				</div>
+				<div class="draggable boxModel">
+					<p id="draggable5" class="inBox">I'm contained within the box's parent</p>
+				</div>
+			</div>
+		</div>
+		<h3>The Coordinates:</h3>
+		<div id="coords">Click an element.</div>
+		<div id="result"></div>
+		<br />
+		<br />
+		<p><strong>Note:</strong> When you click on "draggable4" the "result" is: <em>This element is in "containment-wrapper"!</em>, <br /> but when you move it and click again, then the "result" is <em>This element is not in "containment-wrapper"!</em></p>
+	</body>
+</html>
+

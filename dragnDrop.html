@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+<title>HTML5 Drag and drop demonstration</title>
+  <link href="bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="style.css" type="text/css" rel="stylesheet">
+  <script src="drag.js" type="text/javascript"></script> 
+</head>
+<body>
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<div id="boxA"
+        ondragenter="return dragEnter(event)"
+        ondrop="return dragDrop(event)"
+        ondragover="return dragOver(event)">
+
+			<div class="col-md-1">
+				<div id="drag8" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="8.png"></img>
+			Price</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="2.png"></img>
+			James</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag2" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="7.png"></img>
+			Mary</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag3" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="5.png"></img>
+			Margo</div>
+			</div>
+
+
+			<div class="col-md-1">
+			<div id="drag4" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="4.png"></img>
+			Roopak</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag5" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="3.png"></img>
+			Peter</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag6" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="6.png"></img>
+			Ratul</div>
+			</div>
+			<div class="col-md-1">
+			<div id="drag7" draggable="true"
+            ondragstart="return dragStart(event)"
+            ondragend="return dragEnd(event)">
+			<img src="1.png"></img>
+			Som</div>	
+			</div>
+
+    </div>
+	</div>
+</div>
+    
+
+    <div id="boxB"
+        ondragenter="return dragEnter(event)"
+        ondrop="return dragDrop(event)"
+        ondragover="return dragOver(event)"> Potential Team A
+		<div class="row">
+			<div id="box1" class="col-md-1"></div>
+			<div id="box2" class="col-md-1"></div>
+			<div id="box3" class="col-md-1"></div>
+			<div id="box4" class="col-md-1"></div>
+			<div id="box5" class="col-md-1"></div>
+			<div id="box6" class="col-md-1"></div>
+			<div id="box7" class="col-md-1"></div>
+			<div id="box8" class="col-md-1"></div>
+		</div>
+    </div>
+
+<!--     <div id="boxC"
+        ondragenter="return dragEnter(event)"
+        ondrop="return dragDrop(event)"
+        ondragover="return dragOver(event)">Potential Team B
+    </div> -->
+</div>
+<div class="container well"> 
+	<div class="row" >
+		<div class="col-md-4">Team Chemistry:</div>
+		<div class="col-md-4" id="myTeam">0%</div>
+		
+	</div>
+</div>
+
+</body>
+</html>
+

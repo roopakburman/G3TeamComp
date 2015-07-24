@@ -1,0 +1,55 @@
+div[id^="place"]
+{float:left; width:80px; height:150px; margin:3px; padding:3px; border:1px dotted #333333; background-color:#ffff99;}
+span
+{float:left; width:80px; margin:3px; padding:3px; border:1px solid #999999; color:#333333;}
+.pics, .nums{
+	clear:both; 
+	text-align:center;
+	border:1px dotted #333333;
+}
+	
+
+#boxA, #boxB, #target{ 
+  float:left; 
+  padding-top: 15px;
+  width:85%; 
+  height:210px; 
+  padding:25px 25px 25px 25px; 
+  margin:5px; 
+  border: 2px solid #474747;
+
+}
+#box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, .slot{
+  width:65px; 
+  height:135px; 
+    padding:25px 25px 25px 25px; 
+  margin:5px;
+border: 2px solid #474747;
+  -moz-user-select:none;
+
+}
+
+/* #boxA { background-color: #474747; }
+#boxB { background-color: #474747; }
+#boxC { background-color: #474747; } */
+
+#drag, #drag2, #drag3, #drag4, #drag5, #drag6, #drag7, #drag8 {
+  width:65px; 
+  height:135px; 
+
+  -moz-user-select:none;
+}
+#drag { background-color: orange;}
+#drag2 { background-color: orange;}
+#drag3 { background-color: orange;} 
+#drag4 { background-color: orange;}
+#drag5 { background-color: orange;}
+#drag6 { background-color: orange;}
+#drag7 { background-color: orange;}
+#drag8 { background-color: orange;}
+
+.row, .container {text-align: center}
+
+h1{
+	margin-top: 15px;
+}
